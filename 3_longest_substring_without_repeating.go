@@ -9,23 +9,18 @@ func lengthOfLongestSubstring(s string) int {
 	return result
 }
 
-func search(s string, startFrom int) int {
-	result := 0
+func search(s string, result int) int {
 	usedChars := make(map[int]string)
 
-	for i := startFrom; i < len(s); i++ {
+	for i := 0; i < len(s); i++ {
 		char := string(s[i])
 		isDuplicate, duplicateIndex := inArray(char, usedChars)
 
 		if true == isDuplicate {
 			result = getGreaterNumber(result, len(usedChars))
-			revisedResult := search(s, duplicateIndex+1)
+			s = s[duplicateIndex+1:]
 
-			if revisedResult > result {
-				result = revisedResult
-			}
-
-			usedChars = make(map[int]string)
+			return search(s, result)
 		}
 
 		usedChars[i] = char
@@ -54,6 +49,8 @@ func inArray(needle string, haystack map[int]string) (bool, int) {
 		if item == needle {
 			found = true
 			index = i
+
+			break
 		}
 	}
 
