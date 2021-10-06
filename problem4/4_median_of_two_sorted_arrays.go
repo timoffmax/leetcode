@@ -4,8 +4,14 @@
 package main
 
 import (
+	"fmt"
 	"sort"
 )
+
+func main() {
+	result := findMedianSortedArrays([]int{1, 3}, []int{2})
+	fmt.Println(result)
+}
 
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	result := 0.0

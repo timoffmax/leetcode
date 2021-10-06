@@ -3,6 +3,13 @@
 
 package main
 
+import "fmt"
+
+func main() {
+	result := longestPalindrome("babad")
+	fmt.Println(result)
+}
+
 func longestPalindrome(s string) string {
 	var result string
 

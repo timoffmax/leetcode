@@ -3,6 +3,13 @@
 
 package main
 
+import "fmt"
+
+func main() {
+	result := lengthOfLongestSubstring("abcabcbb")
+	fmt.Println(result)
+}
+
 func lengthOfLongestSubstring(s string) int {
 	result := search(s, 0)
 
